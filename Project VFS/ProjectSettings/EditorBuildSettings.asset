@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/VFS/Scenes/Menu.unity
+    guid: de16ff8909fcbae4885908a9c8ad21e5
+  - enabled: 1
+    path: Assets/VFS/Scenes/Tennis Court.unity
+    guid: d6b6b55e93b85ff4aa5d840f7380012e
   m_configObjects: {}

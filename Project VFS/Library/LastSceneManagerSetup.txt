@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/VFS/Scenes/Menu.unity
+- path: Assets/VFS/Scenes/Tennis Court.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

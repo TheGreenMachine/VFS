@@ -6,21 +6,16 @@ using System.IO.Ports;
 
 public class TennisMovement : MonoBehaviour
 {
-   // SerialPort data_stream = new SerialPort("COM7", 9600);
-    public string RecivedString;
-    public GameObject Ball;
-    public float RotationSpeed = 1000;
-    public Rigidbody ballRigidbody;
+    SerialPort data_stream = new SerialPort("COM5", 9600);
+    string RecivedString;
 
-    float force;
-   
 
-    float angle = 0;
+
     // Use this for initialization
     void Start()
     {
-                ballRigidbody = Ball.GetComponent<Rigidbody>();
-        // data_stream.Open();//initiate the Serial stream
+
+        data_stream.Open();
 
     }
 
@@ -28,38 +23,38 @@ public class TennisMovement : MonoBehaviour
 
     void Update()
     {
-       // Recive_Input();
+
+     
+            Debug.Log("darriahia");
+
 
         
-
     }
 
+        void Recive_Input() {
+            RecivedString = data_stream.ReadLine();
+            string[] receivedvalues = RecivedString.Split(',');
+            float accel_x = (float)Convert.ToDouble(receivedvalues[0]);
+            float accel_y = (float)Convert.ToDouble(receivedvalues[1]);
+            float accel_z = (float)Convert.ToDouble(receivedvalues[2]);
 
-   /* void Recive_Input () {
-        RecivedString = data_stream.ReadLine();
-        string[] receivedvalues = RecivedString.Split(' ');
-        double RacketAngle = Convert.ToDouble(receivedvalues[1]);
-        double Racket_X = Convert.ToDouble(receivedvalues[2]);
-        double Racket_Y = Convert.ToDouble(receivedvalues[3]);
-        
-        
-        transform.Rotate(0, angle, 0);
+            float gyro_x = (float)Convert.ToDouble(receivedvalues[3]);
+            float gyro_y = (float)Convert.ToDouble(receivedvalues[4]);
+            float gyro_z = (float)Convert.ToDouble(receivedvalues[5]);
 
-    }
-   */
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Ball")) { 
-          
-               
+
+            transform.Rotate(gyro_x * 100, gyro_y * 100, gyro_z * 100);
+            data_stream.ReadTimeout = 1;
         }
-    }
 
-    void Ball_Prediction() {
-       
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Ball")) {
+
+
+            }
+        }
 
 
 
-    }
-
-}
+    } 

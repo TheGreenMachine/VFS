@@ -17,7 +17,7 @@ public class Movement_script : MonoBehaviour
     int Normal = 4;
     bool Enemyhit;
     public Transform ball;
-    public Transform aimTarget;
+ 
     Vector3 targetPostion;
 
 
@@ -55,8 +55,8 @@ public class Movement_script : MonoBehaviour
     }
     void Regular_movment() {
 
-        targetPostion.x = ball.position.x;
-        transform.position = Vector3.MoveTowards(transform.position, targetPostion, Normal * Time.deltaTime);
+        targetPostion.z = ball.position.z - 1.2f;
+        transform.position = Vector3.MoveTowards(transform.position , targetPostion , Normal * Time.deltaTime);
     }
 
 

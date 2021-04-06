@@ -8,7 +8,7 @@ public class TennisMovement : MonoBehaviour
 {
     SerialPort data_stream = new SerialPort("COM5", 115200);
     string RecivedString;
-
+    float conversion = 180 / 3.14f;
 
 
     // Use this for initialization
@@ -47,7 +47,7 @@ public class TennisMovement : MonoBehaviour
         float gyro_z = (float)Convert.ToDouble(receivedvalues[5]) * Time.deltaTime;
 
 
-        transform.Rotate(gyro_z * 100, -gyro_x * 100, -gyro_y * 100);
+        transform.Rotate(gyro_z * conversion , gyro_x * conversion, -gyro_y * conversion);
 
 
 
